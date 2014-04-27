@@ -9,7 +9,6 @@
     tools:context="com.dragongears.thoughtbubble.app.ThoughtActivity">
 
     <com.dragongears.thoughtbubble.app.AutoResizeTextView
-        android:text="This is a test of this amazing thing that I found on the Internet"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:textSize="400dp"

@@ -28,7 +28,7 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         EditText et = (EditText) findViewById(R.id.editText);
-        et.setText(preferences.getString("pref_thought_text", "Default value"));
+        et.setText(preferences.getString("pref_thought_text", "Hello!"));
     }
 
     @Override
