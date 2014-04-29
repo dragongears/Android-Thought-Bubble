@@ -1,18 +1,13 @@
 package com.dragongears.thoughtbubble.app;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.Surface;
-import android.view.WindowManager;
 import android.widget.EditText;
 
 
@@ -29,6 +24,10 @@ public class MainActivity extends ActionBarActivity {
 
         EditText et = (EditText) findViewById(R.id.editText);
         et.setText(preferences.getString("pref_thought_text", "Hello!"));
+
+        if (isLandscape()) {
+            goToBubbleActivity();
+        }
     }
 
     @Override
@@ -45,6 +44,10 @@ public class MainActivity extends ActionBarActivity {
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
 
+        goToBubbleActivity();
+    }
+
+    protected void goToBubbleActivity() {
         //Starting a new Intent
         Intent intent = new Intent(this, ThoughtActivity.class);
 
@@ -54,6 +57,10 @@ public class MainActivity extends ActionBarActivity {
 
         startActivity(intent);
         finish();
+    }
+
+    protected boolean isLandscape() {
+        return (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE);
     }
 
     @Override
