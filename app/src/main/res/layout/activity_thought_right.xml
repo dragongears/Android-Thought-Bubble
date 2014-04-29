@@ -6,22 +6,39 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.dragongears.thoughtbubble.app.ThoughtActivity">
+    tools:context="com.dragongears.thoughtbubble.app.ThoughtActivity"
+    android:background="#ff000000">
 
     <com.dragongears.thoughtbubble.app.AutoResizeTextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:textSize="600dp"
         android:id="@+id/thoughtText"
-        android:gravity="center" />
+        android:gravity="center"
+        android:background="@drawable/shape_oval_text"
+        android:paddingLeft="80dp"
+        android:paddingRight="80dp"
+        android:paddingTop="30dp"
+        android:paddingBottom="20dp"
+        android:layout_marginBottom="@dimen/bubble_text_y_offest"
+        android:layout_marginRight="@dimen/bubble_text_x_offest" />
 
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/marker"
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:id="@+id/largeBubble"
+        android:layout_marginBottom="@dimen/bubble_large_y_offest"
+        android:layout_marginRight="@dimen/bubble_large_x_offest"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:text="Right" />
+        android:src="@drawable/shape_oval_text" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/smallBubble"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/shape_oval_text" />
 
 </RelativeLayout>

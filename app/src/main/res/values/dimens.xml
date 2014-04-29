@@ -2,4 +2,10 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="bubble_text_x_offest">10dp</dimen>
+    <dimen name="bubble_text_y_offest">25dp</dimen>
+    <dimen name="bubble_large_x_offest">35dp</dimen>
+    <dimen name="bubble_large_y_offest">10dp</dimen>
+    <dimen name="bubble_small_x_offest">10dp</dimen>
+    <dimen name="bubble_small_y_offest">10dp</dimen>
 </resources>
