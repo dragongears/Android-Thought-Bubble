@@ -1,5 +1,6 @@
 package com.dragongears.thoughtbubble.app;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -8,6 +9,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 
@@ -25,6 +27,8 @@ public class MainActivity extends ActionBarActivity {
         EditText et = (EditText) findViewById(R.id.editText);
         et.setText(preferences.getString("pref_thought_text", "Hello!"));
 
+        et.setSelection(et.getText().length());
+
         if (isLandscape()) {
             goToBubbleActivity();
         }
@@ -35,6 +39,7 @@ public class MainActivity extends ActionBarActivity {
         super.onDestroy();
 
         EditText et = (EditText) findViewById(R.id.editText);
+
         SharedPreferences.Editor preferencesEditor = preferences.edit();
         preferencesEditor.putString("pref_thought_text", et.getText().toString());
         preferencesEditor.apply();
@@ -43,6 +48,11 @@ public class MainActivity extends ActionBarActivity {
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
+
+        EditText et = (EditText) findViewById(R.id.editText);
+
+        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(et.getWindowToken(), 0);
 
         goToBubbleActivity();
     }

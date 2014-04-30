@@ -12,14 +12,14 @@
     <com.dragongears.thoughtbubble.app.AutoResizeTextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="600dp"
+        android:textSize="320dp"
         android:id="@+id/thoughtText"
         android:gravity="center"
         android:background="@drawable/shape_oval"
-        android:paddingLeft="80dp"
-        android:paddingRight="80dp"
-        android:paddingTop="30dp"
-        android:paddingBottom="20dp"
+        android:paddingLeft="@dimen/bubble_text_padding_left"
+        android:paddingRight="@dimen/bubble_text_padding_right"
+        android:paddingTop="@dimen/bubble_text_padding_top"
+        android:paddingBottom="@dimen/bubble_text_padding_bottom"
         android:layout_marginBottom="@dimen/bubble_text_y_offset"
         android:layout_marginRight="@dimen/bubble_text_x_offset" />
 
