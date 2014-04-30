@@ -9,7 +9,7 @@
     <dimen name="bubble_large_y_offset">15dp</dimen>
     <dimen name="bubble_small_x_offset">10dp</dimen>
     <dimen name="bubble_small_y_offset">10dp</dimen>
-    <dimen name="bubble_large_size">120dp</dimen>
-    <dimen name="bubble_small_size">70dp</dimen>
+    <dimen name="bubble_large_size">160dp</dimen>
+    <dimen name="bubble_small_size">80dp</dimen>
 
 </resources>
