@@ -15,29 +15,29 @@
         android:textSize="600dp"
         android:id="@+id/thoughtText"
         android:gravity="center"
-        android:background="@drawable/shape_oval_text"
+        android:background="@drawable/shape_oval"
         android:paddingLeft="80dp"
         android:paddingRight="80dp"
         android:paddingTop="30dp"
         android:paddingBottom="20dp"
-        android:layout_marginBottom="@dimen/bubble_text_y_offest"
-        android:layout_marginLeft="@dimen/bubble_text_x_offest" />
+        android:layout_marginBottom="@dimen/bubble_text_y_offset"
+        android:layout_marginLeft="@dimen/bubble_text_x_offset" />
 
     <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="@dimen/bubble_large_size"
+        android:layout_height="@dimen/bubble_large_size"
         android:id="@+id/largeBubble"
-        android:layout_marginBottom="@dimen/bubble_large_y_offest"
-        android:layout_marginLeft="@dimen/bubble_large_x_offest"
+        android:layout_marginBottom="@dimen/bubble_large_y_offset"
+        android:layout_marginLeft="@dimen/bubble_large_x_offset"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:src="@drawable/shape_oval_text" />
+        android:src="@drawable/shape_oval" />
 
     <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="@dimen/bubble_small_size"
+        android:layout_height="@dimen/bubble_small_size"
         android:id="@+id/smallBubble"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:src="@drawable/shape_oval_text" />
+        android:src="@drawable/shape_oval" />
 </RelativeLayout>
