@@ -9,11 +9,13 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements View.OnClickListener {
     SharedPreferences preferences;
 
     @Override
@@ -24,13 +26,34 @@ public class MainActivity extends ActionBarActivity {
 
         setContentView(R.layout.activity_main);
 
+        if (isLandscape()) {
+            goToBubbleActivity();
+        }
+
         EditText et = (EditText) findViewById(R.id.editMessage);
         et.setText(preferences.getString("pref_thought_text", "Hello!"));
 
         et.setSelection(et.getText().length());
 
-        if (isLandscape()) {
-            goToBubbleActivity();
+        ImageButton btclear = (ImageButton)findViewById(R.id.btnClear);
+        btclear.setOnClickListener(this);
+
+        ImageButton btadd = (ImageButton)findViewById(R.id.btnAdd);
+        btadd.setOnClickListener(this);
+    }
+
+    public void onClick(View v) {
+        EditText et = (EditText) findViewById(R.id.editMessage);
+
+        switch (v.getId()) {
+            case R.id.btnClear:
+                et.setText("");
+                break;
+            case R.id.btnAdd:
+//                TODO: Add EditText text to list
+                break;
+            default:
+                break;
         }
     }
 
