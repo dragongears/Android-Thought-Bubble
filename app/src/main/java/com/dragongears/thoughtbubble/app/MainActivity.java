@@ -24,7 +24,7 @@ public class MainActivity extends ActionBarActivity {
 
         setContentView(R.layout.activity_main);
 
-        EditText et = (EditText) findViewById(R.id.editText);
+        EditText et = (EditText) findViewById(R.id.editMessage);
         et.setText(preferences.getString("pref_thought_text", "Hello!"));
 
         et.setSelection(et.getText().length());
@@ -38,7 +38,7 @@ public class MainActivity extends ActionBarActivity {
     protected void onDestroy () {
         super.onDestroy();
 
-        EditText et = (EditText) findViewById(R.id.editText);
+        EditText et = (EditText) findViewById(R.id.editMessage);
 
         SharedPreferences.Editor preferencesEditor = preferences.edit();
         preferencesEditor.putString("pref_thought_text", et.getText().toString());
@@ -49,7 +49,7 @@ public class MainActivity extends ActionBarActivity {
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
 
-        EditText et = (EditText) findViewById(R.id.editText);
+        EditText et = (EditText) findViewById(R.id.editMessage);
 
         InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(et.getWindowToken(), 0);
@@ -61,7 +61,7 @@ public class MainActivity extends ActionBarActivity {
         //Starting a new Intent
         Intent intent = new Intent(this, ThoughtActivity.class);
 
-        EditText et = (EditText) findViewById(R.id.editText);
+        EditText et = (EditText) findViewById(R.id.editMessage);
         //Sending data to another Activity
         intent.putExtra("message", et.getText().toString());
 
