@@ -92,3 +92,10 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 }
+
+// TODO: Animate thought bubbles
+// TODO: List of thought messages
+// TODO: Thought symbols
+// TODO: Settings
+// TODO: About
+// TODO: Intents
