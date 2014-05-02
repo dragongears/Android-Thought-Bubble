@@ -7,6 +7,7 @@ import android.content.res.Configuration;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,6 +19,8 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import org.json.JSONArray;
 
 import java.util.ArrayList;
 
@@ -56,11 +59,14 @@ public class MainActivity extends ActionBarActivity implements OnClickListener {
         items = new ArrayList<String>();
         itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
         lvItems.setAdapter(itemsAdapter);
-        items.add("Item 1");
-        items.add("Item 2");
-        items.add("Item 3");
-        items.add("Item 4");
-        items.add("Item 5");
+        try {
+            JSONArray jsonArray2 = new JSONArray(preferences.getString("pref_thought_array", "[\"Hello!\",\"#@$%!\",\"WTF\",\"TGIF\"]"));
+            for (int i = 0; i < jsonArray2.length(); i++) {
+                items.add(jsonArray2.getString(i));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -89,7 +95,9 @@ public class MainActivity extends ActionBarActivity implements OnClickListener {
                 et.setText("");
                 break;
             case R.id.btnAdd:
-                itemsAdapter.insert(et.getText().toString(), 0);
+                if (et.getText().length() > 0) {
+                    itemsAdapter.insert(et.getText().toString(), 0);
+                }
                 break;
             default:
                 break;
@@ -100,10 +108,15 @@ public class MainActivity extends ActionBarActivity implements OnClickListener {
     protected void onDestroy () {
         super.onDestroy();
 
-        EditText et = (EditText) findViewById(R.id.editMessage);
 
         SharedPreferences.Editor preferencesEditor = preferences.edit();
+
+        EditText et = (EditText) findViewById(R.id.editMessage);
         preferencesEditor.putString("pref_thought_text", et.getText().toString());
+
+        JSONArray jsArray = new JSONArray(items);
+        preferencesEditor.putString("pref_thought_array", jsArray.toString());
+
         preferencesEditor.apply();
     }
 
@@ -156,7 +169,6 @@ public class MainActivity extends ActionBarActivity implements OnClickListener {
 }
 
 // TODO: Animate thought bubbles
-// TODO: List of thought messages
 // TODO: Thought symbols
 // TODO: Settings
 // TODO: About
