@@ -10,13 +10,24 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 
-public class MainActivity extends ActionBarActivity implements View.OnClickListener {
+public class MainActivity extends ActionBarActivity implements OnClickListener {
     SharedPreferences preferences;
+
+    ArrayList<String> items;
+    ArrayAdapter<String> itemsAdapter;
+    ListView lvItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +51,34 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         ImageButton btadd = (ImageButton)findViewById(R.id.btnAdd);
         btadd.setOnClickListener(this);
+
+        lvItems = (ListView) findViewById(R.id.listView);
+        items = new ArrayList<String>();
+        itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
+        lvItems.setAdapter(itemsAdapter);
+        items.add("Item 1");
+        items.add("Item 2");
+        items.add("Item 3");
+        items.add("Item 4");
+        items.add("Item 5");
+
+        lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                EditText et = (EditText) findViewById(R.id.editMessage);
+                et.setText(((TextView) view).getText().toString());
+            }
+        });
+
+        lvItems.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View v, int position, long rowId) {
+                // TODO Remove
+                items.remove(position);
+                itemsAdapter.notifyDataSetChanged();
+                return true;
+            }
+        });
     }
 
     public void onClick(View v) {
@@ -50,7 +89,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 et.setText("");
                 break;
             case R.id.btnAdd:
-//                TODO: Add EditText text to list
+                itemsAdapter.insert(et.getText().toString(), 0);
                 break;
             default:
                 break;
@@ -122,3 +161,4 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 // TODO: Settings
 // TODO: About
 // TODO: Intents
+// TODO: Button images and backgrounds
