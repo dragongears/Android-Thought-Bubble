@@ -19,12 +19,14 @@
         android:layout_toLeftOf="@+id/btnAdd" />
 
     <ImageButton
+        android:background="?android:attr/selectableItemBackground"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnAdd"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:src="@drawable/abc_ic_go_search_api_holo_light" />
+        android:src="@drawable/ic_action_to_list"
+        android:paddingTop="6dp" />
 
     <ListView
         android:layout_width="wrap_content"

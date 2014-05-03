@@ -75,7 +75,7 @@ public class MainActivity extends ActionBarActivity implements OnClickListener {
         lvItems.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View v, int position, long rowId) {
-                // TODO Remove
+                // TODO Add a remove confirmation dialog
                 items.remove(position);
                 itemsAdapter.notifyDataSetChanged();
                 return true;
@@ -163,8 +163,5 @@ public class MainActivity extends ActionBarActivity implements OnClickListener {
 
 // TODO: Animate thought bubbles
 // TODO: Thought symbols
-// TODO: Settings
 // TODO: About
 // TODO: Intents
-// TODO: Button images and backgrounds
-// TODO: Add to list icon
