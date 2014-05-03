@@ -4,10 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -49,9 +48,6 @@ public class MainActivity extends ActionBarActivity implements OnClickListener {
 
         et.setSelection(et.getText().length());
 
-        ImageButton btclear = (ImageButton)findViewById(R.id.btnClear);
-        btclear.setOnClickListener(this);
-
         ImageButton btadd = (ImageButton)findViewById(R.id.btnAdd);
         btadd.setOnClickListener(this);
 
@@ -91,9 +87,6 @@ public class MainActivity extends ActionBarActivity implements OnClickListener {
         EditText et = (EditText) findViewById(R.id.editMessage);
 
         switch (v.getId()) {
-            case R.id.btnClear:
-                et.setText("");
-                break;
             case R.id.btnAdd:
                 if (et.getText().length() > 0) {
                     itemsAdapter.insert(et.getText().toString(), 0);
@@ -174,3 +167,4 @@ public class MainActivity extends ActionBarActivity implements OnClickListener {
 // TODO: About
 // TODO: Intents
 // TODO: Button images and backgrounds
+// TODO: Add to list icon
