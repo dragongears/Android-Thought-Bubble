@@ -1,18 +1,14 @@
 package com.dragongears.thoughtbubble.app;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-
-public class ThoughtActivity extends ActionBarActivity {
-
+public class ThoughtActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,21 +22,19 @@ public class ThoughtActivity extends ActionBarActivity {
         // SYSTEM_UI_FLAG_FULLSCREEN is only available on Android 4.1 and higher, but as
         // a general rule, you should design your app to hide the status bar whenever you
         // hide the navigation bar.
-        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                | View.SYSTEM_UI_FLAG_FULLSCREEN;
+        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
 
+        // Figure out if the device is rotated left or right
         if ((getWindowManager().getDefaultDisplay().getRotation() & 2) == 0) {
             setContentView(R.layout.activity_thought_left);
         } else {
             setContentView(R.layout.activity_thought_right);
         }
 
+        // Display the message from the main activity
         Intent i = getIntent();
-        // Receiving the Data
         String message = i.getStringExtra("message");
-
-        // Displaying Received data
         AutoResizeTextView artv = (AutoResizeTextView) findViewById(R.id.thoughtText);
         artv.setText(message);
     }
@@ -49,6 +43,7 @@ public class ThoughtActivity extends ActionBarActivity {
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
 
+        // Go back to the main activity when the device is rotated
         //Starting a new Intent
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);

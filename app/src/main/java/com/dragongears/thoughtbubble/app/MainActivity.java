@@ -43,14 +43,14 @@ public class MainActivity extends ActionBarActivity implements OnClickListener {
 
         setContentView(R.layout.activity_main);
 
-        if (isLandscape()) {
-            goToBubbleActivity();
-        }
-
         EditText et = (EditText) findViewById(R.id.editMessage);
         et.setText(preferences.getString("pref_thought_text", "Hello!"));
 
         et.setSelection(et.getText().length());
+
+        if (isLandscape()) {
+            goToBubbleActivity();
+        }
 
         ImageButton btadd = (ImageButton)findViewById(R.id.btnAdd);
         btadd.setOnClickListener(this);
@@ -168,6 +168,7 @@ public class MainActivity extends ActionBarActivity implements OnClickListener {
         intent.putExtra("message", et.getText().toString());
 
         startActivity(intent);
+
         finish();
     }
 
