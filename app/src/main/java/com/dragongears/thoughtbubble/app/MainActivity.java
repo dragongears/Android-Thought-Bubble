@@ -1,6 +1,8 @@
 package com.dragongears.thoughtbubble.app;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -25,6 +27,8 @@ import java.util.ArrayList;
 
 
 public class MainActivity extends ActionBarActivity implements OnClickListener {
+    final Context context = this;
+
     SharedPreferences preferences;
 
     ArrayList<String> items;
@@ -55,6 +59,7 @@ public class MainActivity extends ActionBarActivity implements OnClickListener {
         items = new ArrayList<String>();
         itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
         lvItems.setAdapter(itemsAdapter);
+
         try {
             JSONArray jsonArray2 = new JSONArray(preferences.getString("pref_thought_array", "[\"Hello!\",\"#@$%!\",\"WTF\",\"TGIF\"]"));
             for (int i = 0; i < jsonArray2.length(); i++) {
@@ -75,12 +80,41 @@ public class MainActivity extends ActionBarActivity implements OnClickListener {
         lvItems.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View v, int position, long rowId) {
-                // TODO Add a remove confirmation dialog
-                items.remove(position);
-                itemsAdapter.notifyDataSetChanged();
+                removeItemFromList(position);
                 return true;
             }
         });
+
+        lvItems.setEmptyView(findViewById(R.id.emptyElement));
+    }
+
+    // method to remove list item
+    protected void removeItemFromList(int position) {
+        final int deletePosition = position;
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(
+                MainActivity.this);
+
+        alert.setIcon(R.drawable.ic_launcher);
+        alert.setTitle("Remove message");
+        alert.setMessage("Do you want to remove this message from the list?");
+        alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                items.remove(deletePosition);
+                itemsAdapter.notifyDataSetChanged();
+                itemsAdapter.notifyDataSetInvalidated();
+            }
+        });
+
+        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                // just close
+            }
+        });
+
+
+        alert.show();
+
     }
 
     public void onClick(View v) {
