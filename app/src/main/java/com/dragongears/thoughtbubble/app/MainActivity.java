@@ -92,8 +92,7 @@ public class MainActivity extends ActionBarActivity implements OnClickListener {
     protected void removeItemFromList(int position) {
         final int deletePosition = position;
 
-        AlertDialog.Builder alert = new AlertDialog.Builder(
-                MainActivity.this);
+        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
 
         alert.setIcon(R.drawable.ic_launcher);
         alert.setTitle("Remove message");
