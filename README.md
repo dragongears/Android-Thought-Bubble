@@ -1,6 +1,9 @@
 ## Thought Bubble
 
-A spinning decision maker app written in Java for Android.
+Let everyone know what you're thinking with Thought Bubble. Type a message or choose one from
+a fully customizable list of messages. Then hold your Android device up to your head to show what's
+on your mind. The words of your message are automatically sized to fit perfectly inside a
+thought bubble on your device's screen.
 
 ## Copyright and License Information
 
