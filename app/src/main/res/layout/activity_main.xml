@@ -17,6 +17,7 @@
         android:inputType="textCapSentences"
         android:layout_alignParentLeft="true"
         android:layout_toLeftOf="@+id/btnAdd"
+        android:maxLength="140"
         android:hint="@string/message_hint" />
 
     <ImageButton
