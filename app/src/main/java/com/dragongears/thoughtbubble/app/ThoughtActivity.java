@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 
 public class ThoughtActivity extends Activity {
     @Override
@@ -37,6 +40,30 @@ public class ThoughtActivity extends Activity {
         String message = i.getStringExtra("message");
         AutoResizeTextView artv = (AutoResizeTextView) findViewById(R.id.thoughtText);
         artv.setText(message);
+    }
+
+    @Override
+    public void onWindowFocusChanged (boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus) {
+
+            ImageView smallBubble = (ImageView) findViewById(R.id.smallBubble);
+            Animation fadeInAnimationSmall = AnimationUtils.loadAnimation(this, R.anim.bubble_fade_in);
+            fadeInAnimationSmall.setFillAfter(true);
+            smallBubble.startAnimation(fadeInAnimationSmall);
+
+            ImageView largeBubble = (ImageView) findViewById(R.id.largeBubble);
+            Animation fadeInAnimationLarge = AnimationUtils.loadAnimation(this, R.anim.bubble_fade_in);
+            fadeInAnimationLarge.setStartOffset(150);
+            fadeInAnimationLarge.setFillAfter(true);
+            largeBubble.setAnimation(fadeInAnimationLarge);
+
+            AutoResizeTextView textBubble = (AutoResizeTextView) findViewById(R.id.thoughtText);
+            Animation fadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.bubble_fade_in);
+            fadeInAnimation.setStartOffset(300);
+            fadeInAnimation.setFillAfter(true);
+            textBubble.setAnimation(fadeInAnimation);
+        }
     }
 
     @Override
