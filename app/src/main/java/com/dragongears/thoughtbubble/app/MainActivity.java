@@ -196,6 +196,5 @@ public class MainActivity extends ActionBarActivity implements OnClickListener {
     }
 }
 
-// TODO: Animate thought bubbles
 // TODO: Thought symbols
 // TODO: Intents
