@@ -35,7 +35,7 @@ public class HelpActivity extends FragmentActivity {
     private List<Fragment> getFragments(){
         List<Fragment> fList = new ArrayList<Fragment>();
 
-        fList.add(HelpFragment.newInstance("Type a message", "ic_type_message"));
+        fList.add(HelpFragment.newInstance("Type a message", "type_message"));
         fList.add(HelpFragment.newInstance("Rotate your device", "rotate_phone"));
         fList.add(HelpFragment.newInstance("Hold it up to your head", "hold_up_phone"));
         fList.add(HelpFragment.newInstance("Tap the down arrow to add your message to the list.\n\nLong press on a list item to delete it.", "usage_tips"));
