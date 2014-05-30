@@ -38,6 +38,7 @@ public class HelpActivity extends FragmentActivity {
         fList.add(HelpFragment.newInstance("Type a message", "ic_type_message"));
         fList.add(HelpFragment.newInstance("Rotate your device", "rotate_phone"));
         fList.add(HelpFragment.newInstance("Hold it up to your head", "hold_up_phone"));
+        fList.add(HelpFragment.newInstance("Hints:\n\nTap the down arrow to add your message to the list.\n\nLong press on a list item to delete it.", ""));
 
         return fList;
     }

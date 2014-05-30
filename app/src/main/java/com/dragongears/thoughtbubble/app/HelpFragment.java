@@ -27,15 +27,24 @@ public class HelpFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Resources resources = getResources();
+
         String message = getArguments().getString(EXTRA_MESSAGE);
         String image = getArguments().getString(EXTRA_IMAGE);
+
         View v = inflater.inflate(R.layout.help_fragment_layout, container, false);
+
         TextView messageTextView = (TextView)v.findViewById(R.id.textView);
         messageTextView.setText(message);
+
         ImageView messageImageView = (ImageView)v.findViewById(R.id.imageView);
-        Context context = container.getContext();
-        int resId = resources.getIdentifier(image, "drawable", context.getPackageName());
-        messageImageView.setImageResource(resId);
+        if (!image.isEmpty()) {
+            messageImageView.setVisibility(View.VISIBLE);
+            int resId = resources.getIdentifier(image, "drawable", container.getContext().getPackageName());
+            messageImageView.setImageResource(resId);
+        } else {
+            messageImageView.setVisibility(View.GONE);
+        }
+
         return v;
     }
 
