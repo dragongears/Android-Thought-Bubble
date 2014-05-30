@@ -191,6 +191,11 @@ public class MainActivity extends ActionBarActivity implements OnClickListener {
         if (id == R.id.action_about) {
             AboutBox.Show(MainActivity.this);
             return true;
+        } else if (id == R.id.action_help) {
+            //Starting a new Intent
+            Intent intent = new Intent(this, HelpActivity.class);
+            startActivity(intent);
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
