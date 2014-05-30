@@ -10,6 +10,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 
+import com.viewpagerindicator.CirclePageIndicator;
+
 public class HelpActivity extends FragmentActivity {
     MyPageAdapter pageAdapter;
     @Override
@@ -23,6 +25,10 @@ public class HelpActivity extends FragmentActivity {
 
         ViewPager pager = (ViewPager)findViewById(R.id.viewpager);
         pager.setAdapter(pageAdapter);
+
+        //Bind the title indicator to the adapter
+        CirclePageIndicator helpIndicator = (CirclePageIndicator)findViewById(R.id.indicator);
+        helpIndicator.setViewPager(pager);
 
     }
 
