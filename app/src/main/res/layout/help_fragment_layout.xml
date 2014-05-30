@@ -11,9 +11,8 @@
         android:id="@+id/imageView"
         android:layout_centerHorizontal="true"
         android:src="@drawable/type_message"
-        android:layout_alignParentTop="false"
+        android:layout_alignParentTop="true"
         android:layout_alignParentBottom="false"
-        android:layout_above="@+id/textView"
         android:layout_margin="30dp" />
 
     <TextView
@@ -24,9 +23,8 @@
         android:layout_marginBottom="30dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="false"
         android:text="This is a test"
+        android:layout_below="@+id/imageView"
         android:layout_alignWithParentIfMissing="true"
         android:layout_centerHorizontal="true" />
 
