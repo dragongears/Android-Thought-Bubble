@@ -61,7 +61,8 @@ public class MainActivity extends ActionBarActivity implements OnClickListener {
         lvItems.setAdapter(itemsAdapter);
 
         try {
-            JSONArray jsonArray2 = new JSONArray(preferences.getString("pref_thought_array", "[\"Hello!\",\"#@$%!\",\"WTF\",\"TGIF\"]"));
+            String defaultValue = getResources().getString(R.string.list_default);
+            JSONArray jsonArray2 = new JSONArray(preferences.getString("pref_thought_array", defaultValue));
             for (int i = 0; i < jsonArray2.length(); i++) {
                 items.add(jsonArray2.getString(i));
             }
