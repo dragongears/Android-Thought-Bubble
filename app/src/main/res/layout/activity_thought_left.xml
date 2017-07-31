@@ -12,7 +12,7 @@
     <com.dragongears.thoughtbubble.app.AutoResizeTextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="320dp"
+        android:textSize="320sp"
         android:id="@+id/thoughtText"
         android:gravity="center"
         android:background="@drawable/shape_oval"

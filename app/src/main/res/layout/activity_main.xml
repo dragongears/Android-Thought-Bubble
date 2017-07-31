@@ -9,7 +9,7 @@
     tools:context="com.dragongears.thoughtbubble.app.MainActivity">
 
     <org.droidparts.widget.ClearableEditText
-        android:drawableRight="@drawable/abc_ic_clear_holo_light"
+        android:drawableRight="@drawable/ic_clear_holo_light"
         android:drawablePadding="6dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
