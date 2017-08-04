@@ -119,11 +119,12 @@ public class MainActivity extends ActionBarActivity implements OnClickListener {
 
     public void onClick(View v) {
         EditText et = (EditText) findViewById(R.id.editMessage);
+        String ets = et.getText().toString();
 
         switch (v.getId()) {
             case R.id.btnAdd:
-                if (et.getText().length() > 0) {
-                    itemsAdapter.insert(et.getText().toString(), 0);
+                if (ets.length() > 0 && !items.contains(ets)) {
+                    itemsAdapter.insert(ets, 0);
                 }
                 break;
             default:
