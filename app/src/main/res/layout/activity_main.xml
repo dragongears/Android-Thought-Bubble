@@ -10,13 +10,16 @@
 
     <org.droidparts.widget.ClearableEditText
         android:drawableRight="@drawable/ic_clear_holo_light"
+        android:drawableEnd="@drawable/ic_clear_holo_light"
         android:drawablePadding="6dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editMessage"
         android:inputType="textCapSentences"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_toLeftOf="@+id/btnAdd"
+        android:layout_toStartOf="@+id/btnAdd"
         android:maxLength="140"
         android:hint="@string/message_hint" />
 
@@ -44,6 +47,6 @@
         android:text="@string/empty_list"
         android:layout_below="@+id/editMessage"
         android:layout_marginTop="20dp"
-        android:textSize="20dp" />
+        android:textSize="20sp" />
 
 </RelativeLayout>

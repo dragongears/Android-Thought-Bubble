@@ -17,11 +17,14 @@
         android:gravity="center"
         android:background="@drawable/shape_oval"
         android:paddingLeft="@dimen/bubble_text_padding_left"
+        android:paddingStart="@dimen/bubble_text_padding_left"
         android:paddingRight="@dimen/bubble_text_padding_right"
+        android:paddingEnd="@dimen/bubble_text_padding_right"
         android:paddingTop="@dimen/bubble_text_padding_top"
         android:paddingBottom="@dimen/bubble_text_padding_bottom"
         android:layout_marginBottom="@dimen/bubble_text_y_offset"
-        android:layout_marginRight="@dimen/bubble_text_x_offset" />
+        android:layout_marginRight="@dimen/bubble_text_x_offset"
+        android:layout_marginEnd="@dimen/bubble_text_x_offset" />
 
     <ImageView
         android:layout_width="@dimen/bubble_large_size"
@@ -29,8 +32,10 @@
         android:id="@+id/largeBubble"
         android:layout_marginBottom="@dimen/bubble_large_y_offset"
         android:layout_marginRight="@dimen/bubble_large_x_offset"
+        android:layout_marginEnd="@dimen/bubble_large_x_offset"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:src="@drawable/shape_oval" />
 
     <ImageView
@@ -39,6 +44,7 @@
         android:id="@+id/smallBubble"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:src="@drawable/shape_oval" />
 
 </RelativeLayout>

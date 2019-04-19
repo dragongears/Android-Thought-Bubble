@@ -11,4 +11,6 @@
     <string name="empty_list">Tap the down arrow to create a list of messages</string>
     <string name="list_default">[\"Hello!\",\"#@$%!\",\"WTF\",\"TGIF\",\"Thank you!\"]</string>
 
+    <string name="copyright">Copyright \u00A9 2014 – 2019\nArthur J. Dahm III</string>
+
 </resources>
